@@ -14,6 +14,7 @@ namespace Open_Lab_04._10
         private bool shouldStop;
 
         private const float Tolerance = 0.02f;
+        private const float RandTolerance = 50f;
 
         private const int RandSeed = 410410410;
         private const int RandNumsCountMin = 1;
@@ -48,7 +49,7 @@ namespace Open_Lab_04._10
             if (shouldStop)
                 Assert.Ignore("Previous test failed!");
 
-            AverageTest(nums, expected);
+            Assert.That(calc.Average(nums), Is.EqualTo(expected).Within(RandTolerance));
         }
 
         private static IEnumerable GetRandom()
